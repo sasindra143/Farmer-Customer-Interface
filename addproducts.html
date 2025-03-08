@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add & Remove Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        .btn-remove {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .btn-back {
+            background-color: gray;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌱 Add Your Product</h2>
+        <input type="text" id="productName" placeholder="Product Name">
+        <input type="text" id="farmerName" placeholder="Farmer Name">
+        <input type="text" id="location" placeholder="Location">
+        <select id="category">
+            <option value="Vegetables">Vegetables</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Grains">Grains</option>
+        </select>
+        <input type="number" id="price" placeholder="Price (₹)">
+        <button onclick="addProduct()">Add Product</button>
+        
+        <h3>Product List</h3>
+        <div id="productList"></div>
+    </div>
+
+    <button class="btn-back" onclick="goBack()">Back</button>
+    
+    <script>
+        function addProduct() {
+            let name = document.getElementById("productName").value;
+            let farmer = document.getElementById("farmerName").value;
+            let location = document.getElementById("location").value;
+            let category = document.getElementById("category").value;
+            let price = document.getElementById("price").value;
+
+            if (name && farmer && location && price) {
+                let productList = document.getElementById("productList");
+                let productItem = document.createElement("div");
+                productItem.classList.add("product-item");
+                productItem.innerHTML = `${name} - ${category} - ₹${price} 
+                    <button class='btn-remove' onclick='removeProduct(this)'>Remove</button>`;
+                productList.appendChild(productItem);
+            } else {
+                alert("Please fill all fields");
+            }
+        }
+
+        function removeProduct(button) {
+            button.parentElement.remove();
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

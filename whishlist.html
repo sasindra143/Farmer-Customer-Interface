@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+        .wishlist-item {
+            background: #222;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+        }
+        button {
+            background: red;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>❤️ My Wishlist</h1>
+<div id="wishlist"></div>
+<a href="index.html">Back to Products</a>
+
+<script>
+    function loadWishlist() {
+        let wishlistContainer = document.getElementById("wishlist");
+        let cartItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        if (cartItems.length === 0) {
+            wishlistContainer.innerHTML = "<p>No items in wishlist</p>";
+            return;
+        }
+
+        cartItems.forEach((item, index) => {
+            let div = document.createElement("div");
+            div.classList.add("wishlist-item");
+            div.innerHTML = `
+                <span>${item}</span>
+                <button onclick="removeItem(${index})">Remove</button>
+            `;
+            wishlistContainer.appendChild(div);
+        });
+    }
+
+    function removeItem(index) {
+        let cartItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+        cartItems.splice(index, 1);
+        localStorage.setItem("wishlist", JSON.stringify(cartItems));
+        location.reload(); // Refresh to update the list
+    }
+
+    // Load wishlist on page load
+    window.onload = loadWishlist;
+</script>
+
+</body>
+</html>

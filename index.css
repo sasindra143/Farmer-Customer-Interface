@@ -1,0 +1,758 @@
+ /* Dark Theme Styling */
+
+
+ *{
+    margin: 0;
+    padding :0;
+
+ }
+ body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Header Section */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: transparent;
+    z-index: 1000;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin-right: 120px; /* Increased right margin for better spacing */
+}
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 120px; /* Added more space from the right side */
+}
+.menu-toggle div {
+    width: 30px;
+    height: 4px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 15px;
+        border-radius: 8px;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('https://res.cloudinary.com/dvknx0hpm/image/upload/v1741176899/DALL_E_2025-03-05_17.44.35_-_A_vibrant_farmland_scene_featuring_lush_green_fields_fresh_vegetables_and_fruits._A_happy_farmer_holds_a_basket_of_freshly_harvested_crops_smiling_pkplh8.webp') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 2s ease-in-out forwards;
+    margin-top: 80px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 0.5s;
+}
+
+.hero p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FAFAFA;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 1s;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 1.5s;
+}
+
+.cta-buttons a {
+    text-decoration: none;
+    padding: 12px 24px;
+    background-color: #ffcc00;
+    color: #165B33;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta-buttons a:hover {
+    background-color: #ffa500;
+    transform: scale(1.1);
+}
+
+/*hero-section*/
+
+ /* Dark Theme Styling */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('https://res.cloudinary.com/dvknx0hpm/image/upload/v1741176899/DALL_E_2025-03-05_17.44.35_-_A_vibrant_farmland_scene_featuring_lush_green_fields_fresh_vegetables_and_fruits._A_happy_farmer_holds_a_basket_of_freshly_harvested_crops_smiling_pkplh8.webp') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        
+        .hero h1 {
+            font-size: 50px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-in-out forwards 0.5s;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-in-out forwards 1s;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-in-out forwards 1.5s;
+        }
+        
+        .cta-buttons a {
+            text-decoration: none;
+            padding: 12px 24px;
+            background-color: #ffcc00;
+            color: #121212;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .cta-buttons a:hover {
+            background-color: #ffa500;
+            transform: scale(1.1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+/*hero-section*/
+
+ /* Dark Theme Styling */
+ body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('https://res.cloudinary.com/dvknx0hpm/image/upload/v1741176899/DALL_E_2025-03-05_17.44.35_-_A_vibrant_farmland_scene_featuring_lush_green_fields_fresh_vegetables_and_fruits._A_happy_farmer_holds_a_basket_of_freshly_harvested_crops_smiling_pkplh8.webp') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 0.5s;
+}
+
+.hero p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 1s;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards 1.5s;
+}
+
+.cta-buttons a {
+    text-decoration: none;
+    padding: 12px 24px;
+    background-color: #ffcc00;
+    color: #121212;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta-buttons a:hover {
+    background-color: #ffa500;
+    transform: scale(1.1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*about*/
+
+ /* Dark Theme */
+ body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #ffcc00;
+    font-size: 28px;
+}
+
+/* About Us Section */
+.about {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.about h3 {
+    color: #ffcc00;
+}
+
+.about p {
+    line-height: 1.6;
+}
+
+/* Blog Section */
+.blog-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.blog-card {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: scale(1.05);
+}
+
+.blog-card h4 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.blog-card p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.read-more {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Blog Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #222;
+    padding: 20px;
+    width: 90%;
+    height: 50%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.modal h3 {
+    color: #ffcc00;
+}
+
+.modal img, .modal video {
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.close-btn {
+    background: #ffcc00;
+    color: #121212;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.close-btn:hover {
+    background: #e6b800;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+
+/*product*/
+
+body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #FFD700;
+}
+
+/* Section Above Products */
+.welcome-section {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* Category Buttons */
+.categories {
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    background: #333;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.category-btn:hover {
+    background: #FFD700;
+    color: black;
+}
+
+
+
+
+/* Product Grid */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Product Card */
+.product-card {
+    background: #1e1e1e;
+    width: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    border: 2px solid #FFD700;
+}
+
+.product-card img {
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Product Name (Yellow Color) */
+.product-card h3 {
+    color: #FFD700;
+    margin: 5px 0;
+}
+
+/* Button Container (Side by Side) */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+/* Buttons Styling */
+.buy-btn, .cart-btn {
+    flex: 1;
+    background: #4CAF50;
+    color: white;
+    border: 2px solid transparent;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: border 0.3s ease-in-out;
+}
+
+.buy-btn:hover, .cart-btn:hover {
+    background: #388E3C;
+    border: 2px solid #FFD700;
+}
+
+
+
+
+/*contact*/
+  /* Global styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #1a1a1a;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+#contact h2 {
+    margin-bottom: 2rem;
+    color: #FFD700;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-link {
+    color: #03a9f4;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq {
+    margin-top: 2rem;
+}
+
+.faq h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.faq-item {
+    background-color: #333333;
+    margin: 1rem auto;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.faq-question {
+    background-color: #444444;
+    color: #ffffff;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.faq-question:hover {
+    background-color: #555555;
+}
+
+.faq-answer {
+    display: none;
+    padding: 1rem;
+    background-color: #282828;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* Live Chat Button */
+.live-chat-btn {
+    display: block;
+    margin: 2rem auto;
+    background-color: #03a9f4;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.live-chat-btn:hover {
+    background-color: #0288d1;
+}
+
+/* Live Chat Popup */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #333333;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chat-header {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.chat-body {
+    padding: 1rem;
+}
+
+#chat-msg {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    background-color: #444444;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+.send-msg {
+    background-color: #03a9f4;
+    color: #ffffff;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.send-msg:hover {
+    background-color: #0288d1;
+}
+
+.close-chat {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+}

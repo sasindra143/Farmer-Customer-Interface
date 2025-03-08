@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <style>
+        /* Dark Theme */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        /* Container */
+        .dashboard-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        /* Sections */
+        .section {
+            background: #222;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .section h2 {
+            color: #ffcc00;
+        }
+
+        /* Buttons */
+        .btn {
+            background: #ffcc00;
+            color: #121212;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #e6b800;
+        }
+        .back-btn {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background: #ffcc00;
+    color: #121212;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.back-btn:hover {
+    background: #e6b800;
+}
+
+
+
+
+.back-btn1 {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+    background: #ffcc00;
+    color: #121212;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.back-btn1:hover {
+    background: #e6b800;
+}
+
+        /* Tracking Details */
+        .tracking-details {
+            display: none;
+            background: #1e1e1e;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .tracking-step {
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 4px solid #444;
+            padding-left: 10px;
+        }
+
+        .tracking-step.completed {
+            border-left-color: #ffcc00;
+            color: #ffcc00;
+        }
+
+        /* Wishlist */
+        .wishlist-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .wishlist-item button {
+            background: red;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Reviews */
+        .review-item {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .review-item p {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <div class="header">🛒 Customer Dashboard</div>
+
+        <!-- Profile Section -->
+        <div class="section">
+            <h2>👤 Profile</h2>
+            <p><strong>Name:</strong> <span id="username">John Doe</span></p>
+            <p><strong>Email:</strong> <span id="useremail">johndoe@example.com</span></p>
+            <button class="btn" onclick="editProfile()">Edit Profile</button>
+        </div>
+
+        <!-- Wishlist Section -->
+         
+        <div class="section">
+            <h2>❤️ Wishlist</h2>
+            <div id="wishlist">
+                <div class="wishlist-item">
+                    <span>Organic Tomatoes</span>
+                    <button onclick="removeWishlistItem(this)">Remove</button>
+                </div>
+                <div class="wishlist-item">
+                    <span>Fresh Mangoes</span>
+                    <button onclick="removeWishlistItem(this)">Remove</button>
+                </div>
+            </div>
+        </div>
+        <!-- Back Button -->
+<button class="btn back-btn" onclick="goBack()">⬅️ Back to Products</button>
+
+
+        <!-- Order Tracking Section -->
+        <div class="section">
+            <h2>📦 My Orders</h2>
+            <div class="order-card">
+                <p><strong>Order #12345</strong> | <span>Status: Pending</span></p>
+                <button class="btn" onclick="toggleTracking('tracking1')">Track Order</button>
+                
+                <div class="tracking-details" id="tracking1">
+                    <h4>📦 Order Tracking Details</h4>
+                    <p><strong>Expected Delivery:</strong> <span id="expected-date-1">March 10, 2025</span></p>
+                    
+                    <div class="tracking-step completed">✅ Order Placed</div>
+                    <div class="tracking-step">🚚 Shipped</div>
+                    <div class="tracking-step">📍 Out for Delivery</div>
+                    <div class="tracking-step">🎉 Delivered</div>
+                    
+                    <button class="btn" onclick="updateOrderStatus('tracking1')">Update Status</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="section">
+            <h2>⭐ Reviews & Ratings</h2>
+            <div id="reviews">
+                <div class="review-item">
+                    <p><strong>Organic Apples:</strong> ⭐⭐⭐⭐⭐ "Best quality ever!"</p>
+                </div>
+                <div class="review-item">
+                    <p><strong>Fresh Bananas:</strong> ⭐⭐⭐⭐ "Very fresh and delicious!"</p>
+                </div>
+            </div>
+            <textarea id="new-review" placeholder="Write your review..." rows="3" style="width:100%; margin-top:10px;"></textarea>
+            <button class="btn" onclick="addReview()">Submit Review</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle tracking details
+        function toggleTracking(id) {
+            let trackingDetails = document.getElementById(id);
+            trackingDetails.style.display = (trackingDetails.style.display === "block") ? "none" : "block";
+        }
+
+        // Function to update order tracking status dynamically
+        function updateOrderStatus(id) {
+            let steps = document.querySelectorAll(`#${id} .tracking-step`);
+            let expectedDate = document.querySelector(`#${id} span`);
+
+            for (let i = 0; i < steps.length; i++) {
+                if (!steps[i].classList.contains('completed')) {
+                    steps[i].classList.add('completed');
+                    if (steps[i].innerText.includes("Shipped")) {
+                        expectedDate.innerText = "March 8, 2025"; 
+                    }
+                    break;
+                }
+            }
+        }
+
+        // Function to edit profile
+        function editProfile() {
+            let newName = prompt("Enter your new name:", document.getElementById("username").innerText);
+            let newEmail = prompt("Enter your new email:", document.getElementById("useremail").innerText);
+            if (newName) document.getElementById("username").innerText = newName;
+            if (newEmail) document.getElementById("useremail").innerText = newEmail;
+        }
+
+        // Function to remove wishlist item
+        function removeWishlistItem(element) {
+            element.parentElement.remove();
+        }
+
+
+        function loadWishlist() {
+        let wishlistContainer = document.getElementById("wishlist");
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        wishlistContainer.innerHTML = "";
+        if (wishlist.length === 0) {
+            wishlistContainer.innerHTML = "<p>No items in wishlist</p>";
+        } else {
+            wishlist.forEach((item, index) => {
+                wishlistContainer.innerHTML += `
+                    <div class="wishlist-item">
+                        <span>${item.name} - ${item.price}</span>
+                        <button onclick="removeWishlistItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+        }
+    }
+
+    function removeWishlistItem(index) {
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        wishlist.splice(index, 1);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        loadWishlist();
+    }
+
+    // Load wishlist when the page loads
+    loadWishlist();
+
+        // Function to add a new review
+        function addReview() {
+            let reviewText = document.getElementById("new-review").value;
+            if (reviewText.trim() !== "") {
+                let reviewContainer = document.getElementById("reviews");
+                let newReview = document.createElement("div");
+                newReview.classList.add("review-item");
+                newReview.innerHTML = `<p><strong>New Review:</strong> ⭐⭐⭐⭐ "${reviewText}"</p>`;
+                reviewContainer.appendChild(newReview);
+                document.getElementById("new-review").value = "";
+            }
+        }
+
+
+        function goBack() {
+    window.history.back(); // Redirects to the previous page
+}
+function goBack() {
+    window.history.back(); // Redirects to the previous page
+}
+
+    </script>
+
+</body>
+</html>

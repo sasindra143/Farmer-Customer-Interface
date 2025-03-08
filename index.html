@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmers E-Commerce</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="Index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="https://res.cloudinary.com/dvknx0hpm/image/upload/v1740480293/WhatsApp_Image_2025-02-25_at_16.10.43_6eb5984b-removebg-preview_t8uakb.png" alt="Logo">
+            🌾 Farmers Market
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#product" onclick="closeMenu()">Products</a></li>
+
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+
+
+
+                  <li class="cart">
+                    <a href="customer.html"> <!-- Redirects to customer.html -->
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">
+                            <i class='bx bxs-cart' style="font-size: 32px; color: white;"></i> <!-- Increased size, white color -->
+                        </span> 🛒
+                    </a>
+                </li>
+                
+                
+               
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+     <!-- Hero Section -->
+     <section class="hero" id="home">
+        <h1><strong>From Farm to Your Table – Fresh, Organic & Direct!</strong></h1>
+        <p><strong>Supporting local farmers and bringing you the best produce.</strong></p>
+        <div class="cta-buttons">
+            <a href="#product"><strong>Shop Now</strong></a>
+            <a href="#sell"><strong>Sell Your Produce</strong></a>
+        </div>
+    </section>
+
+    
+    
+    <div class="container" id="about">
+        <!-- About Us Section -->
+        <div class="about">
+            <h2>🌱 About Us</h2>
+            <h3>Our Mission</h3>
+            <p>We empower farmers by connecting them directly with customers. Our platform ensures fair prices, quality produce, and a better livelihood for farmers.</p>
+        </div>
+
+        <!-- Blog Section -->
+        <h2>📖 Blog</h2>
+        <div class="blog-section">
+            <div class="blog-card" onclick="openBlog(0)">
+                <h4>🌿 Organic Farming Benefits</h4>
+                <p>Discover why organic farming is healthier and more sustainable...</p>
+                <span class="read-more">Read More</span>
+            </div>
+
+            <div class="blog-card" onclick="openBlog(1)">
+                <h4>🚜 Success Story: A Farmer’s Journey</h4>
+                <p>How one farmer turned his small farm into a thriving business...</p>
+                <span class="read-more">Read More</span>
+            </div>
+
+            <div class="blog-card" onclick="openBlog(2)">
+                <h4>🌍 Sustainable Agriculuture</h4>
+                <p>Learn about the best crops to plant this year for maximum yield...</p>
+                <span class="read-more">Read More</span>
+            </div>
+
+            <div class="blog-card" onclick="openBlog(3)">
+                <h4>🌾 Best Crops to Grow This Season</h4>
+                <p>How sustainable farming practices protect our environment...</p>
+                <span class="read-more">Read More</span>
+            </div>
+
+            <div class="blog-card" onclick="openBlog(4)">
+                <h4>🐝 The Role of Bees in Farming</h4>
+                <p>Why pollinators like bees are crucial for crop production...</p>
+                <span class="read-more">Read More</span>
+            </div>
+
+            <div class="blog-card" onclick="openBlog(5)">
+                <h4>🍎 Farm-to-Table Movement</h4>
+                <p>How direct sales benefit farmers and consumers alike...</p>
+                <span class="read-more">Read More</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Details Modal -->
+    <div id="blog-modal" class="modal">
+        <h3 id="blog-title">Blog Title</h3>
+        <p id="blog-content">Blog content goes here...</p>
+        <img id="blog-image" src="https://res.cloudinary.com/dvknx0hpm/image/upload/v1741323752/94d4f2e7-f269-4b20-abb6-00baceec0a11_tjrcas.webp" alt="Blog Image">
+        <video id="blog-video" controls style="display:none;">
+            <source src="https://youtube.com/shorts/HSoFvkRreGY?si=deCsUQ9M0I_z5ME1" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="close-btn" onclick="closeBlog()">Close</button>
+    </div>
+
+
+    
+    <!-- Welcome Section -->
+    <div class="welcome-section" id="product">
+        <h1>🌿 Fresh From Farm - Shop Now</h1>
+        <p>Welcome to our farm-to-table marketplace! Browse fresh organic produce and support local farmers.</p>
+    </div>
+
+   
+    <!-- Categories -->
+    <div class="categories">
+        <button class="category-btn" onclick="filterProducts('all')">All</button>
+        <button class="category-btn" onclick="filterProducts('vegetables')">Vegetables</button>
+        <button class="category-btn" onclick="filterProducts('fruits')">Fruits</button>
+        <button class="category-btn" onclick="filterProducts('dairy')">Dairy</button>
+        <button class="category-btn" onclick="filterProducts('grains')">Grains</button>
+        <button class="category-btn" onclick="filterProducts('organic')">Organic</button>
+
+        <a href="addproducts.html"><button class="category-btn" onclick="addproduct.html">Farmer Add Product</button></a>
+    </div>
+
+    
+   
+    <!-- Product Grid (Starts AFTER Section) -->
+    <div class="product-container" id="product-list"></div>
+
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Contact & Support</h2>
+            <div class="contact-links">
+                <a href="mailto:sasindragandla@gmail.com?" class="contact-link">Email Us</a>
+                <a href="https://wa.me/9959732476" class="contact-link">WhatsApp</a>
+                <a href="https://www.instagram.com/sasi_the_creator_143?igsh=d3U0c2I2dmF6ZjBl" class="contact-link">Instagram</a>
+                <a href="https://www.linkedin.com/in/sasindra-madduri" class="contact-link">LinkedIn</a>
+            </div>
+            <div class="faq">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <button class="faq-question">How can I contact support?</button>
+                    <div class="faq-answer">
+                        <p>You can contact support through email, WhatsApp, or live chat.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is the response time?</button>
+                    <div class="faq-answer">
+                        <p>We aim to respond to all inquiries within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+            <button id="live-chat-btn" class="live-chat-btn">Live Chat</button>
+        </div>
+    </section>
+    <div id="chat-popup" class="chat-popup">
+        <div class="chat-header">
+            <span>Live Chat Support</span>
+            <button id="close-chat" class="close-chat">×</button>
+        </div>
+        <div class="chat-body">
+            <p>How can we assist you?</p>
+            <textarea id="chat-msg" placeholder="Type your message..."></textarea>
+            <button id="send-msg" class="send-msg">Send</button>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2></h2>
+            <div class="contact-links">
+                <a href="mailto:suppor" class="contact-link"></a>
+                <a href="https://wa.me/1234567890" class="contact-link"></a>
+                <a href="https://www.instagram.com" class="contact-link"></a>
+                <a href="https://www.linkedin.com" class="contact-link"></a>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq">
+                <h3></h3>
+                <div class="faq-item">
+                    
+                    <div class="faq-answer">
+                        <p>                                  </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                  
+                    <div class="faq-answer">
+                        <p>                             </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Chat Button -->
+          
+        </div>
+    </section>
+
+    <!-- Live Chat Popup -->
+    <div id="chat-popup" class="chat-popup">
+        <div class="chat-header">
+            <span></span>
+            <button id="close-chat" class="close-chat">×</button>
+        </div>
+        <div class="chat-body">
+            <p>        </p>
+            <textarea id="chat-msg" placeholder="Type your message..."></textarea>
+          
+    </div>
+    
+</body>
+</html>
